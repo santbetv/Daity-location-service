@@ -1,6 +1,6 @@
 package com.deity.location.service;
 
-import com.deity.location.domain.mongo.Neighborhood;
+import com.deity.location.domain.mongo.CityCapital;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import org.springframework.stereotype.Service;
@@ -8,20 +8,19 @@ import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
 
 @Service
-public class NeighborhoodService {
-
+public class CitysService {
 
     @Qualifier("primaryMongoTemplate")
     private final ReactiveMongoTemplate primaryMongoTemplate;
 
-    public NeighborhoodService(ReactiveMongoTemplate primaryMongoTemplate) {
+    public CitysService(ReactiveMongoTemplate primaryMongoTemplate) {
         this.primaryMongoTemplate = primaryMongoTemplate;
     }
 
     @Transactional(readOnly = true)
-    public Flux<Neighborhood> getAllCitys() {
+    public Flux<CityCapital> getAllCitys() {
 
-        return primaryMongoTemplate.findAll(Neighborhood.class)
+        return primaryMongoTemplate.findAll(CityCapital.class)
                 .doOnSubscribe(s -> System.out.println("Obteniendo datos...Suscritos"))//Se ejecuta cuando se suscribe un observador
                 //.doOnNext(e -> System.out.println("Datos: " + e))//Se ejecuta cuando se recibe un elemento
                 .doOnComplete(() -> System.out.println("Datos obtenidos correctamente...FIN"))//Se ejecuta cuando se completa la secuencia

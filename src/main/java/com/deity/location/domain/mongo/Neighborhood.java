@@ -26,32 +26,32 @@ public class Neighborhood {
     private String barrio;
 
     @Field("X")
-    private double x;
+    private Double x;
 
     @Field("Y")
-    private double y;
+    private Double y;
 
     @Field("NOMBRE_JUN")
     private String nombreJun;
 
     @Field("nro")
-    private long nro;
+    private Long nro;
 
     @Field("COMUNA")
     private String comuna;
 
     @Field("Shape_Leng")
-    private double shapeLeng;
+    private Double shapeLeng;
 
     @Field("Shape_Area")
-    private double shapeArea;
+    private Double shapeArea;
 
     @Field("Shape__Area")
-    private double neighborhoodShapeArea;
+    private Double neighborhoodShapeArea;
 
     @Field("Shape__Length")
-    private double shapeLength;
+    private Double shapeLength;
 
     @Field("city")
-    private long city;
+    private Long city;
 }

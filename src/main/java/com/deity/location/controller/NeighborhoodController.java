@@ -1,6 +1,8 @@
 package com.deity.location.controller;
 
+import com.deity.location.domain.mongo.CityCapital;
 import com.deity.location.domain.mongo.Neighborhood;
+import com.deity.location.service.CitysService;
 import com.deity.location.service.NeighborhoodService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,13 +17,20 @@ import reactor.core.publisher.Flux;
 public class NeighborhoodController {
 
     private final NeighborhoodService neighborhoodService;
+    private final CitysService citysService;
 
-    public NeighborhoodController(NeighborhoodService neighborhoodService) {
+    public NeighborhoodController(NeighborhoodService neighborhoodService, CitysService citysService) {
         this.neighborhoodService = neighborhoodService;
+        this.citysService = citysService;
     }
 
     @GetMapping("/neighborhoods")
     public ResponseEntity<Flux<Neighborhood>> getAllNeighborhoods() {
-        return new ResponseEntity<>(neighborhoodService.getAllNeighborhoods(), HttpStatus.OK);
+        return new ResponseEntity<>(neighborhoodService.getAllCitys(), HttpStatus.OK);
+    }
+
+    @GetMapping("/citys")
+    public ResponseEntity<Flux<CityCapital>> getAllCitysService() {
+        return new ResponseEntity<>(citysService.getAllCitys(), HttpStatus.OK);
     }
 }

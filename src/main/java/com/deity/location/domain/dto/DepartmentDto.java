@@ -1,14 +1,8 @@
 package com.deity.location.domain.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.deity.location.domain.mongo.CityCapital;
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class DepartmentDto {
 
     private long id;
@@ -20,7 +14,7 @@ public class DepartmentDto {
     private long population;
     private String phonePrefix;
     private long countryID;
-    private CityCapitalDto cityCapitalDto;
+    private CityCapital cityCapital;
     private Object country;
     private Object cities;
     private long regionID;
