@@ -17,10 +17,10 @@ public class Neighborhood {
     private String id; // MongoDB utiliza cadenas para los IDs
 
     @Field("FID")
-    private long fid;
+    private Long fid;
 
     @Field("OBJECTID_1")
-    private long objectid1;
+    private Long objectid1;
 
     @Field("BARRIO")
     private String barrio;

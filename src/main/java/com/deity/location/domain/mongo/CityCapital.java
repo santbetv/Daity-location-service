@@ -3,6 +3,7 @@ package com.deity.location.domain.mongo;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Data
 @Builder
@@ -15,6 +16,8 @@ public class CityCapital {
 
     @Id
     private String id;
+    @Field("id")
+    private Long idCity;
     private String name;
     private String description;
     private Long surface;
