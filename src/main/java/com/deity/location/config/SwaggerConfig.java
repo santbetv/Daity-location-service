@@ -25,6 +25,6 @@ public class SwaggerConfig {
         return new Info().title("Location - By Santiago Betancur Villegas")
                 .description("Spring location application")
                 .version("v0.0.1")
-                .license(new License().name("Apache 2.0").url("http://springdoc.org"));
+                .license(new License().name("Apache 2.0").url("https://springdoc.org"));
     }
 }
