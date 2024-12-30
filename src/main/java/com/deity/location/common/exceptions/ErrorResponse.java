@@ -11,6 +11,15 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ErrorResponse {
-    private String message;
-    private Integer status;
+    private String type = "/errors/uncategorized";
+    private String title;
+    private String code;
+    private String detail;
+    private String instance = "/errors/uncategorized/location";
+
+    public ErrorResponse(String title, int code) {
+        this.title = title;
+        this.code = String.valueOf(code);
+        this.detail = title;
+    }
 }
