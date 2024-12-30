@@ -17,7 +17,12 @@ public class SwaggerConfig {
         return new OpenAPI()
                 .components(new Components())
                 .info(apiEndPointinfo())
-                .addServersItem(new Server().url("https://daity-location-service-production.up.railway.app").description("Generated server url"))
+                .addServersItem(new Server()
+                        .url("https://daity-location-service-production.up.railway.app")
+                        .description("Generated server url production"))
+                .addServersItem(new Server()
+                        .url("http://localhost:8080")
+                        .description("Generated server url development"))
                 .externalDocs(new ExternalDocumentation()
                         .description("Spring Location Wiki Documentation")
                         .url("https://springshop.wiki.github.org/docs"));
