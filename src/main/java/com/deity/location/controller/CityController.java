@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/api/v1")
-@Tag(name = "City - Ciudades", description = "operations for citys")
+@Tag(name = "Location")
 public class CityController {
     private final CitysService citysService;
 

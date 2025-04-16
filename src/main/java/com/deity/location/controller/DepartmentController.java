@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/api/v1")
-@Tag(name = "Department - Departamentos", description = "operations for department")
+@Tag(name = "Location")
 public class DepartmentController {
 
     private final DepartmentService departmentService;
