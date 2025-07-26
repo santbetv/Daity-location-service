@@ -8,7 +8,7 @@ COPY src ./src
 
 RUN mvn clean package -DskipTests
 
-# Stage 2: runtime
+# Stage 2: runtime con JRE liviano
 FROM eclipse-temurin:17-jre-jammy
 
 RUN groupadd -g 1000 location && \
@@ -20,6 +20,8 @@ WORKDIR /app
 
 COPY --from=builder /app/target/*.jar app.jar
 
-ENV JAVA_OPTS="-Xms256m -Xmx512m -Djava.security.egd=file:/dev/./urandom"
+# Limita heap y mejora performance de arranque
+ENV JAVA_OPTS="-Xms256m -Xmx256m -XX:+UseG1GC -Djava.security.egd=file:/dev/./urandom"
 
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
+# Usa exec para que Java sea el proceso PID 1
+ENTRYPOINT ["sh", "-c", "exec java $JAVA_OPTS -jar app.jar"]
